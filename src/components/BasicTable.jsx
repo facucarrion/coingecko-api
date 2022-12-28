@@ -62,7 +62,7 @@ const BasicTable = ({ coins }) => {
                 </span>
               </TableCell>
               <TableCell align="left" width={'12%'}>
-                {coin.current_price}
+                {'$' + coin.current_price}
               </TableCell>
               <TableCell align="left" width={'14%'}>
                 {coin.last_updated.slice(0, -5).replace('T', ' ')}
