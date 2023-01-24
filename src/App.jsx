@@ -14,11 +14,7 @@ const App = () => {
     setTimeout(() => setRefreshable(false), 8000)
   }
 
-  useEffect(() => {
-    axios.get(URL).then((res) => {
-      setCoins(res.data)
-    })
-  }, [])
+  useEffect(() => axios.get(URL).then((res) => setCoins(res.data)), [])
 
   return (
     <>
