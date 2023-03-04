@@ -1,29 +1,27 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import './App.css'
+import { BasicTable } from './components/table/BasicTable'
+import { Header } from './components/header/Header'
+import { useCoingeckoFetch } from './hooks/useCoingeckoFetch'
+import { API_URL } from './assets/constants'
 
-function App() {
+const App = () => {
+  const { coins, setCoins, refresh, setRefresh } = useCoingeckoFetch(API_URL)
 
-  const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
+  const refreshQuery = url => {
+    fetch(url)
+      .then(res => res.json())
+      .then(data => setCoins(data))
+    setRefresh(true)
+    setTimeout(() => setRefresh(false), 8000)
+  }
 
-  const [coins, setCoins] = useState([])
-
-  useEffect(() => {
-    axios.get(url)
-    .then((res) => {
-      setCoins(res.data)
-    })
-  }, [])
-  
-  
   return (
-    <div className="App">
-         {
-          coins.map(coin => (
-            <h3 key={coin.id}>{coin.name}</h3>
-          ))
-         }
-    </div>
+    <>
+      <Header
+        action={() => refreshQuery(API_URL)}
+        refresh={refresh}
+      />
+      <BasicTable coins={coins} />
+    </>
   )
 }
 
