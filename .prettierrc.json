@@ -1,7 +1,10 @@
 {
   "semi": false,
   "singleQuote": true,
+  "jsxSingleQuote": true,
   "quoteProps": "as-needed",
   "trailingComma": "none",
-  "printWidth": 150
+  "printWidth": 256,
+  "singleAttributePerLine": true,
+  "arrowParens": "avoid"
 }
