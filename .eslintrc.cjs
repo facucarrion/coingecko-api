@@ -4,31 +4,27 @@ module.exports = {
     es2021: true,
     node: true
   },
-  extends: ['plugin:react/recommended', 'standard', 'prettier'],
-  overrides: [],
+  extends: [
+    './node_modules/standard/eslintrc.json',
+    'plugin:react/recommended'
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: ['react'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
-    'no-unused-vars': 'warn',
-    'prefer-const': 'warn'
+    'no-unused-vars': 'warn'
   },
-  settings: {
-    react: {
-      version: 'detect'
-    }
-  },
+  settings: {},
   ignorePatterns: [
     '**/*.html',
-    '**/*.json',
     '**/*.png',
     '**/*.jpg',
     '**/*.svg',
     '**/*.webp',
-    '**/*.css'
+    '**/*.css',
+    '**/*.json'
   ]
 }
