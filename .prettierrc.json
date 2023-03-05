@@ -4,7 +4,7 @@
   "jsxSingleQuote": true,
   "quoteProps": "as-needed",
   "trailingComma": "none",
-  "printWidth": 256,
+  "printWidth": 80,
   "singleAttributePerLine": true,
   "arrowParens": "avoid"
 }
