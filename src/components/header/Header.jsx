@@ -1,5 +1,5 @@
 import './header.css'
-import { refreshImg, coingeckoLogoPath } from '../../assets/imagePaths'
+import { refreshImgPath, coingeckoLogoPath } from '../../assets/imagePaths'
 
 const Header = ({ action, refresh }) => {
   return (
@@ -20,7 +20,7 @@ const Header = ({ action, refresh }) => {
         disabled={refresh}
       >
         <img
-          src={refreshImg}
+          src={refreshImgPath}
           alt='reload white icon'
         />
       </button>
